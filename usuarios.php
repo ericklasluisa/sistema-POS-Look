@@ -235,7 +235,7 @@ VENTANA MODAL EDITAR USUARIO
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                 <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario"
-                                    value="" readonly required>
+                                    value="" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -243,7 +243,7 @@ VENTANA MODAL EDITAR USUARIO
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control input-lg" name="editarPassword"
-                                    placeholder="Ingresar Nueva Contraseña">
+                                    placeholder="Ingresar Nueva Contraseña" required>
                                 <input type="hidden" id="passwordActual" name="passwordActual">
                             </div>
                         </div>
@@ -253,7 +253,7 @@ VENTANA MODAL EDITAR USUARIO
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
                                 <select name="editarPerfil" class="form-control input-lg">
 
-                                    <option value="" id="editarPerfil" selected></option>
+                                    <option value="" id="editarPerfil" disabled selected></option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Especial">Especial</option>
                                     <option value="Vendedor">Vendedor</option>
