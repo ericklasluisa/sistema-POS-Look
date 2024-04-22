@@ -30,17 +30,23 @@ class ControladorUsuarios
                     $respuesta["password"] == $encriptar
                 ) {
 
-                    $_SESSION["iniciarSesion"] = "ok";
-                    $_SESSION["id"] = $respuesta["id"];
-                    $_SESSION["nombre"] = $respuesta["nombre"];
-                    $_SESSION["usuario"] = $respuesta["usuario"];
-                    $_SESSION["foto"] = $respuesta["foto"];
-                    $_SESSION["perfil"] = $respuesta["perfil"];
+                    if ($respuesta["estado"] == 1) {
 
-                    echo '
-                    <script>
-                        window.location = "inicio"
-                    </script>';
+                        $_SESSION["iniciarSesion"] = "ok";
+                        $_SESSION["id"] = $respuesta["id"];
+                        $_SESSION["nombre"] = $respuesta["nombre"];
+                        $_SESSION["usuario"] = $respuesta["usuario"];
+                        $_SESSION["foto"] = $respuesta["foto"];
+                        $_SESSION["perfil"] = $respuesta["perfil"];
+
+                        echo '
+                            <script>
+                                window.location = "inicio"
+                            </script>
+                        ';
+                    } else {
+                        echo "<br><div class='alert alert-danger'>El Usuario no está Activado</div>";
+                    }
                 } else {
                     echo "<br><div class='alert alert-danger'>Usuario o Contraseña incorrectos, 
                     vuelve a intentarlo</div>";
