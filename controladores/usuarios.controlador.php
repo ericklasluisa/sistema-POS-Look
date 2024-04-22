@@ -41,14 +41,11 @@ class ControladorUsuarios
                     <script>
                         window.location = "inicio"
                     </script>';
-
                 } else {
                     echo "<br><div class='alert alert-danger'>Usuario o Contraseña incorrectos, 
                     vuelve a intentarlo</div>";
                 }
-
             }
-
         }
     }
 
@@ -106,7 +103,6 @@ class ControladorUsuarios
                         imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
                         imagejpeg($destino, $ruta);
-
                     }
 
                     if ($_FILES["nuevaFoto"]["type"] == "image/png") {
@@ -127,7 +123,6 @@ class ControladorUsuarios
 
                         imagepng($destino, $ruta);
                     }
-
                 }
 
                 $tabla = "usuarios";
@@ -168,9 +163,7 @@ class ControladorUsuarios
 
                     </script>
                     ';
-
                 }
-
             } else {
                 echo '
                 <script>
@@ -195,9 +188,7 @@ class ControladorUsuarios
                 </script>
                 ';
             }
-
         }
-
     }
 
     /* ============
@@ -211,7 +202,6 @@ class ControladorUsuarios
         $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
         return $respuesta;
-
     }
 
     /* ============
@@ -220,6 +210,10 @@ class ControladorUsuarios
 
     public function ctrEditarUsuario()
     {
+
+        // ? SI NO FUNCIONA RECORDAR QUE SE DEBE DESCOMENTAR (QUITAR PUNTO Y COMA) DE XAMPP PHP_INI
+        // ? EXTENSION=GD
+
         if (isset($_POST["editarUsuario"])) {
             echo '<script>console.log("' . $_POST["editarUsuario"] . '")</script>';
             if (
@@ -236,10 +230,8 @@ class ControladorUsuarios
 
 
                 if (isset($_FILES["editarFoto"]["tmp_name"]) && $_FILES["editarFoto"]["size"] > 0) {
-                    echo '<script>console.log("NO SE DEBERIA MOSTRAR")</script>';
 
                     list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
-                    echo '<script>console.log("hola1")</script>';
 
                     $nuevoAncho = 500;
                     $nuevoAlto = 500;
@@ -248,7 +240,6 @@ class ControladorUsuarios
                     CREAR DIRECTORIO DONDE SE VA A GUARDAR LA FOTO DEL USUARIO
                     ========================================================== */
                     $directorio = "vistas/img/usuarios/" . $_POST["editarUsuario"];
-                    echo '<script>console.log("' . $directorio . '")</script>';
 
 
                     /* =====================================
@@ -257,11 +248,9 @@ class ControladorUsuarios
                     if (!empty($_POST["fotoActual"])) {
 
                         unlink($_POST["fotoActual"]);
-
                     } else {
 
                         mkdir($directorio, 0755);
-
                     }
 
                     /* =======================================================
@@ -284,7 +273,6 @@ class ControladorUsuarios
                         imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
                         imagejpeg($destino, $ruta);
-
                     }
 
                     if ($_FILES["editarFoto"]["type"] == "image/png") {
@@ -305,10 +293,8 @@ class ControladorUsuarios
 
                         imagepng($destino, $ruta);
                     }
-
                 }
                 echo '<script>console.log("si se muestra la ruta:  ' . $ruta . '")</script>';
-
             } else {
 
                 echo '
@@ -332,7 +318,6 @@ class ControladorUsuarios
 
                     </script>
                 ';
-
             }
 
             $tabla = "usuarios";
@@ -341,7 +326,6 @@ class ControladorUsuarios
                 if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])) {
 
                     $encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
-
                 } else {
                     echo '
                         <script>
@@ -365,7 +349,6 @@ class ControladorUsuarios
                         </script>
                     ';
                 }
-
             } else {
                 $encriptar = $_POST["passwordActual"];
             }
@@ -412,8 +395,6 @@ class ControladorUsuarios
                     </script>
                 ';
             }
-
         }
     }
 }
-

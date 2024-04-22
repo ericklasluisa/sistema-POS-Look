@@ -68,8 +68,15 @@
                             }
 
                             echo '
-                                <td>' . $value["perfil"] . '</td>
-                                <td><button class="btn btn-success btn-xs">Activado</button></td>
+                                <td>' . $value["perfil"] . '</td>';
+
+                            if ($value["estado"] != 0) {
+                                echo '<td><button class="btn btn-success btn-xs">Activado</button></td>';
+                            } else {
+                                echo '<td><button class="btn btn-danger btn-xs">Desactivado</button></td>';
+                            }
+
+                            echo '
                                 <td>' . $value["ultimo_login"] . '</td>
                                 <td>
                                     <div class="btn-group">
@@ -127,24 +134,21 @@ VENTANA MODAL AGREGAR USUARIO
                             <!-- ENTRADA DE NOMBRE -->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoNombre"
-                                    placeholder="Ingresar Nombre" required>
+                                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- ENTRADA PARA USUARIO -->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario"
-                                    placeholder="Ingresar Usuario" required>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- ENTRADA PARA CONTRASEÑA -->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control input-lg" name="nuevoPassword"
-                                    placeholder="Ingresar Contraseña" required>
+                                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -167,8 +171,7 @@ VENTANA MODAL AGREGAR USUARIO
                                 <div class="panel">SUBIR FOTO</div>
                                 <input type="file" class="nuevaFoto" name="nuevaFoto">
                                 <p class="help-block">Peso máximo de la foto 2 MB</p>
-                                <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar"
-                                    width="100px">
+                                <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
                             </div>
                         </div>
                     </div>
@@ -226,24 +229,21 @@ VENTANA MODAL EDITAR USUARIO
                             <!-- ENTRADA DE NOMBRE -->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre"
-                                    value="" required>
+                                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- ENTRADA PARA USUARIO -->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario"
-                                    value="" required>
+                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- ENTRADA PARA CONTRASEÑA -->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control input-lg" name="editarPassword"
-                                    placeholder="Ingresar Nueva Contraseña" required>
+                                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Ingresar Nueva Contraseña" required>
                                 <input type="hidden" id="passwordActual" name="passwordActual">
                             </div>
                         </div>
@@ -267,8 +267,7 @@ VENTANA MODAL EDITAR USUARIO
                                 <div class="panel">SUBIR FOTO</div>
                                 <input type="file" class="nuevaFoto" name="editarFoto">
                                 <p class="help-block">Peso máximo de la foto 2 MB</p>
-                                <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar"
-                                    width="100px">
+                                <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
                                 <input type="hidden" name="fotoActual" id="fotoActual">
                             </div>
                         </div>
