@@ -118,6 +118,8 @@ $("#nuevoUsuario").change(function () {
   var datos = new FormData();
   datos.append("validarUsuario", usuario);
 
+  $(".alert").remove();
+
   $.ajax({
     url: "ajax/usuarios.ajax.php",
     method: "POST",
